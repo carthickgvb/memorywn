@@ -1,6 +1,6 @@
 /************************************************
 
-	Variables and functions are defined here
+    Variables and functions are defined here
 	
 ************************************************/
 
