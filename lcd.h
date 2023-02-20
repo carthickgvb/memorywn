@@ -1,14 +1,14 @@
 /*************************************************
- 	lcd.h: Header file for 16x2 LCD interfacing  
+     lcd.h: Header file for 16x2 LCD interfacing  
 **************************************************/
 
 //Functions contained in this header file
-void msdelay(unsigned int);																	//fn takes integer value as an input and generates corresponding delay in milli seconds
+void msdelay(unsigned int); //fn takes integer value as an input and generates corresponding delay in milli seconds
 void lcd_init(void);																				//Initialize LCD
-void lcd_cmd(unsigned int i);																//Sends commands to lcd
-void lcd_char(unsigned char ch);														//display character on a lcd corresponding to input ascii
-void lcd_write_string(unsigned char *s);										//takes pointer of a string which ends with null and display on a lcd 
-void int_to_string(unsigned int,unsigned char *temp_string);//convert unsigned int to string of corresponding decimal value 
+void lcd_cmd(unsigned int i); //Sends commands to lcd
+void lcd_char(unsigned char ch); //display character on a lcd corresponding to input ascii
+void lcd_write_string(unsigned char *s); //takes pointer of a string which ends with null and display on a lcd 
+void int_to_string(unsigned int,unsigned char *temp_string); //convert unsigned int to string of corresponding decimal value 
 
 //Signals to LCD
 sbit RS=P0^0;	//Register select
@@ -18,7 +18,7 @@ sbit EN=P0^2;	//Enable pin of lcd
 
 //Function definitions
 /************************************************
-   lcd_init():
+        lcd_init():
 	Initializes LCD port and 
 	LCD display parameters
 ************************************************/
@@ -41,7 +41,7 @@ void lcd_init(void)
 }
 
 /**********************************************************
-   msdelay(<time_val>): 
+        msdelay(<time_val>): 
 	Delay function for delay value <time_val>ms
 ***********************************************************/	
 void msdelay(unsigned int time)
@@ -54,7 +54,7 @@ void msdelay(unsigned int time)
 }
 
 /**********************************************************
-  int_to_string(<integer_value>,<string_ptr>): 
+        int_to_string(<integer_value>,<string_ptr>): 
 	Converts integer to string of length 5
 ***********************************************************/	
 //void int_to_string(unsigned int val,unsigned char *temp_str_data)
@@ -69,7 +69,7 @@ void msdelay(unsigned int time)
 //}
 
 /**********************************************************
-    lcd_cmd(<char command>):
+        lcd_cmd(<char command>):
 	Sends 8 bit command
 	LCD display parameters
 ***********************************************************/	
@@ -85,7 +85,7 @@ void lcd_cmd(unsigned int i)
 
 
 /**********************************************************
-   lcd_write_char(<char data>):
+        lcd_write_char(<char data>):
 	Sends 8 bit character(ASCII)
 	to be printed on LCD
 ***********************************************************/	
@@ -101,7 +101,7 @@ void lcd_write_char(unsigned char ch)
 
 
 /***********************************************************
-  lcd_write_string(<string pointer>):
+        lcd_write_string(<string pointer>):
 	Prints string on LCD. Requires string pointer 
 	as input argument.
 ***********************************************************/	
