@@ -77,12 +77,12 @@ void AdjustScore(void){
 ***********************************************************/	
 void uart_init(void)
 {
-	TMOD=0x20;							//Configure Timer 1 in Mode 2
-	TH1=204;								//Load TH1 to obtain require Baudrate (Refer Serial.pdf for calculations)
-	SCON=0x50;							//Configure UART peripheral for 8-bit data transfer 
-	TR1=1;									//Start Timer 1
-	EA=1;										//Enable Serial Interrupt
-	ES=0;										//Enable Global Interrupt
+	TMOD=0x20;  //Configure Timer 1 in Mode 2
+	TH1=204;    //Load TH1 to obtain require Baudrate (Refer Serial.pdf for calculations)
+	SCON=0x50;  //Configure UART peripheral for 8-bit data transfer 
+	TR1=1;	    //Start Timer 1
+	EA=1;	    //Enable Serial Interrupt
+	ES=0;	    //Enable Global Interrupt
 }
 
 
@@ -93,16 +93,16 @@ void uart_init(void)
 ************************************************/
 void serial_ISR(void) interrupt 4
 {
-		if(RI==1)													//check whether RI is set
+		if(RI==1) //check whether RI is set
 		{
-			RI = 0;													//Clear RI flag
+			RI = 0;	//Clear RI flag
 			DisplayNum(SBUF-48,0xC7);
 			AdjustScore();
 			ES=0;
 		}
-		else if(TI==1)										//check whether TI is set
+		else if(TI==1) //check whether TI is set
 		{
-			TI = 0;													//Clear TI flag
+			TI = 0;	//Clear TI flag
 		}
 }
 
